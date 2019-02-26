@@ -4,25 +4,33 @@ class Startup
 
   @@all =[]
 
-    def initialize
-      @founder=founder
-      @domain=domain
+    def initialize(name, founder, domain)
       @name=name
-      @domain = []
-      @pivot= (domain, name)
+      @founder=founder
+      @domain = domain
+      @pivot = domain, name
       @@all<< self
     end
 
-    def self
+    def self.all
       @@all
     end
 
     def self.find_by_founder(founder)
-      @@all.find{|startup|startup.founder==founder}
+      @@all.find{|startup|startup.founder==self}
     end
 
-    def sign_contract
+    def self.domain
+      @@all.map {|company|company.domain}
+    end
+    # def self.domain
+    #   @@all.map do |company|
+    #   company.domain
+    #   end (alternative method)
+    # end
 
+    def sign_contract
+      funding_round.new.all.map{|investment|investment.type==venture_capitalist}
     end
 
     def num_funding_rounds

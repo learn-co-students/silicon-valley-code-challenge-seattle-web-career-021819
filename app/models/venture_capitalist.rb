@@ -3,18 +3,18 @@ class VentureCapitalist
 
 @@all=[]
 
-  def initialize
+  def initialize(name, total_worth)
     @name=name
     @total_worth=total_worth
     @@all << self
   end
 
-  def self
+  def self.all
     @@all
   end
 
-  def tres_commas_club
-    @total_worth > 1000000000.0
+  def self.tres_commas_club
+    @@all.select {|venture_capitalist| venture_capitalist.total_worth > 1_000_000_000}
   end
 
   def offer_contract
@@ -29,8 +29,8 @@ class VentureCapitalist
   end
 
   def portfolio
-    list =[]
-    portfolio.select.map {||}
+    # list =[]
+    # portfolio.select.map {||}
   end
 
   def biggest_investment

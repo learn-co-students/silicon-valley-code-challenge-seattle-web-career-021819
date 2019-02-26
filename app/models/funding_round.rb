@@ -4,16 +4,16 @@ class FundingRound
 
   @@all= []
 
-  def initialize
+  def initialize(type, investment)
     @startup=startup
     @venture_capitalist=venture_capitalist
     @type=type
-    @investment=num
+    @investment=investment
     @@all << self
   end
-  
 
-  def self
+
+  def self.all
     @@all
   end
 
